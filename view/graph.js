@@ -1,4 +1,8 @@
 class View {
+	/*
+	Handles any graphical
+	element of the game.
+	*/
 
 	buildPanel(dimension) {
 		/*
@@ -9,38 +13,17 @@ class View {
 		--	4 = 4x4, 2 = 2x2
 		*/
 		let table = document.createElement('table');
-		let text = 0;
+		let randomized = Utils.alterArray(Utils.createToRandomize(dimension));
+		setPanel(randomized);
 
 		for (let i=0; i<dimension; i++) {
 			let tr = table.insertRow();
 
 			for (let j=0;j<dimension; j++){
 				let td = tr.insertCell();
-				td.appendChild(document.createTextNode(text++));
+				td.appendChild(document.createTextNode(randomized.shift()));
 			}
 		}
-
 		document.body.appendChild(table);
 	}
-
-}
-
-class Controller {
-
-	buildCell(dimension) {
-		myGame.cell(dimension);
-	}
-
-}
-
-window.onload = function(){
-	/*
-	Initializer.
-	*/
-	controller = new Controller();
-
-	myGame = new Game();
-
-	view = new View();
-	view.buildPanel(2);
 }
