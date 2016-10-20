@@ -1,0 +1,13 @@
+body, html {
+	margin: 0;
+	height: 100%;
+}
+
+body table td {
+	width: 100px;
+	height: 100px;
+	border: 1px solid black;
+	border-radius: 5px;
+	text-align: center;
+}
+
