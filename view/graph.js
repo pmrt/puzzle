@@ -14,14 +14,16 @@ class View {
 		*/
 		let table = document.createElement('table');
 		let randomized = Utils.alterArray(Utils.createToRandomize(dimension));
-		setPanel(randomized);
+		setCoords(randomized);
 
 		for (let i=0; i<dimension; i++) {
 			let tr = table.insertRow();
 
 			for (let j=0;j<dimension; j++){
 				let td = tr.insertCell();
-				td.appendChild(document.createTextNode(randomized.shift()));
+				let ID = randomized.shift()
+				td.id = ID;
+				td.appendChild(document.createTextNode(ID));
 			}
 		}
 		document.body.appendChild(table);
