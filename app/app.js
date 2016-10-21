@@ -4,45 +4,41 @@ class Game {
 	Logical part.
 
 	ATTRIB:
-		- panel. After panel is built, stores
-		data as following:
-		{<real-order>: <current-order>}
-
-		Example:
-
-		{0: 1,
-		 1: 3,
-		 2: 0,
-		 3: 2}
+		- coords. After coords is built, stores
+		coords data.
 	*/
 	constructor() {
-		this.panel = {}
+		this.coords = []
 	}
 
-	setPanel(currentOrder) {
+	setCoords(startingOrder) {
 		/*
-		Gets the currentOrder (array),
-		stores the info. as mentioned in
-		the Game class attribs.
+		Gets the startingOrder (array),
+		stores the  cords.
 		*/
-		for (let i=0; i<currentOrder.length; i++){
-			this.panel[i] = currentOrder[i];
+		let currentOrder = startingOrder.slice();
+		let dimension = startingOrder.length/2;
+
+		for (let i=0; i < dimension; i++){
+			let row = []
+			for (let j=0; j < dimension; j++){
+				row.push(currentOrder.shift());
+			}
+			this.coords.push(row);
 		}
 	}
 
-	getPanel(){
+	getCoords(){
 		/*
-		Return the Panel if
+		Return the Coords if
 		*/
-		if(!Utils.isEmpty(this.panel)) {
-			return this.panel;
+		if(!Utils.isEmpty(this.coords)) {
+			return this.coords;
 		} else {
 			return false;
 		}
 	}
 
-	isValidMove() {
-	}
 
 }
 
@@ -51,5 +47,8 @@ class Tracker {
 
 	isSorted() {
 
+	}
+
+	isValidMove() {
 	}
 }
