@@ -13,7 +13,7 @@
 	with the app.
 */
 
-function setPanel(currentOrder) {
+function setCoords(currentOrder) {
 	/*
 	When you have built the
 	Panel use this function
@@ -35,11 +35,11 @@ function setPanel(currentOrder) {
 		 2: 0,
 		 3: 2}
 	*/
-	myGame.setPanel(currentOrder);
+	myGame.setCoords(currentOrder);
 }
 
 
-function getPanel() {
+function getCoords() {
 	/*
 	Get the panel data you've
 	built before.
@@ -49,5 +49,5 @@ function getPanel() {
 
 	@Return: json object / boolean
 	*/
-	return myGame.panel;
+	return myGame.getCoords();
 }
