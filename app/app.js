@@ -11,13 +11,14 @@ class Game {
 		this.coords = []
 	}
 
+	// TODO WITH SET
 	setCoords(startingOrder) {
 		/*
 		Gets the startingOrder (array),
-		stores the  cords.
+		stores the coords.
 		*/
 		let currentOrder = startingOrder.slice();
-		let dimension = startingOrder.length/2;
+		let dimension = Math.sqrt(startingOrder.length);
 
 		for (let i=0; i < dimension; i++){
 			let row = []
