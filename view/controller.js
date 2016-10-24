@@ -25,15 +25,17 @@ function setCoords(currentOrder) {
 	it will store the information
 	as follows:
 
-		JSON OBJECT.
-		{<real-order>: <current-order>}
+	[
+		[0,1],
+	    [2,3]
+	]
 
-		Example:
+	Being:
+	- 0 : coords[0][0]
+	- 1 : coords[0][1]
+	- 2 : coords[1][0]
+	- 3 : coords[1][1]
 
-		{0: 1,
-		 1: 3,
-		 2: 0,
-		 3: 2}
 	*/
 	myGame.setCoords(currentOrder);
 }
