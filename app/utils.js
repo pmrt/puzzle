@@ -8,9 +8,9 @@ class Utils {
 		return array[Math.floor(Math.random() * array.length)];
 	}
 
-	static createToRandomize(dimension){
+	static createDimension(dimension){
 		/*
-		Create a 'toRandomize' array which
+		Create an array which
 		we'll use later for randomize
 		the elements order.
 		*/
