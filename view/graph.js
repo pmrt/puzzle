@@ -13,7 +13,7 @@ class View {
 		--	4 = 4x4, 2 = 2x2
 		*/
 		let table = document.createElement('table');
-		let randomized = Utils.alterArray(Utils.createToRandomize(dimension));
+		let randomized = Utils.alterArray(Utils.createDimension(dimension));
 		setCoords(randomized);
 
 		for (let i=0; i<dimension; i++) {
