@@ -6,5 +6,5 @@ window.onload = function(){
 	myGame = new Game();
 	view = new View();
 
-	view.buildPanel(2);
+	view.buildPanel(4);
 }
