@@ -6,11 +6,13 @@ class View {
 
 	buildPanel(dimension) {
 		/*
-		Build the panel according to
-		the dimension parameter:
+			Build the panel according to
+			the dimension parameter:
 
-		Where:
-		--	4 = 4x4, 2 = 2x2
+			Where:
+			  -	4 = 4x4, 2 = 2x2
+
+			callback: addEvents
 		*/
 		let table = document.createElement('table');
 		let randomized = Utils.alterArray(Utils.createDimension(dimension));
@@ -27,5 +29,6 @@ class View {
 			}
 		}
 		document.body.appendChild(table);
+		addEvents();
 	}
 }
