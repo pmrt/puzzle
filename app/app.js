@@ -92,14 +92,12 @@ class Tracker {
 
 			@Return: boolean
 		*/
-		let valid = true;
-
 		for (let direction of coord) {
 			if (direction > dimension-1 || direction < 0) {
-				valid = false;
+				return false;
 			}
 		}
-		return valid;
+		return true;
 	}
 
 	addEvents(){
