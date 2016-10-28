@@ -59,14 +59,17 @@ class Utils {
 				- A : 1@-1
 				- D : 1@+1
 				- S : 0@+1
+
+			@Return: array [row, col]
 		*/
 		let movement = move.split('@');
 		let direction = parseInt(movement[0]);
 		let operation = parseInt(movement[1]);
+		let newCoords = currentCoords.slice();
 
-		currentCoords[direction] += operation;
+		newCoords[direction] += operation;
 
-		return currentCoords;
+		return newCoords;
 	}
 
 }
