@@ -34,7 +34,6 @@ class Game {
 		return this.currentCoord;
 	}
 
-	// TODO WITH SET
 	setCoords(startingOrder) {
 		/*
 			Gets the startingOrder (array),
@@ -66,6 +65,38 @@ class Game {
 			return this.coords;
 		} else {
 			return false;
+		}
+	}
+
+	swapCells(newCoords) {
+		/*
+			Swaps the current zero-cell with
+			newCoord's cell.
+
+			@Return: array [lastid, newid] // TODO
+		*/
+		let newCoordValue = this.getCoords()[newCoords[0]][newCoords[1]];
+		let currentCoordValue = this.getCoords()[this.currentCoord[0]][this.currentCoord[1]];
+
+		this.coords[this.currentCoord[0]][this.currentCoord[1]] = newCoordValue;
+		this.coords[newCoords[0]][newCoords[1]] = currentCoordValue;
+
+		this.changeCurrentCoord = newCoords;
+
+		return [currentCoordValue, newCoordValue];
+
+	}
+
+	makeMove(move){
+		/*
+			Make the move 'move'.
+		*/
+		let newCoords = Utils.coordTranslate(this.playerCell, move);
+
+		if (tracker.isValidCoord(newCoords, 4)){
+			swapCells(newCoords);
+		} else {
+			msg("Movimiento no válido!");
 		}
 	}
 
@@ -101,6 +132,9 @@ class Tracker {
 	}
 
 	addEvents(){
+		/*
+			Add the KeyDown event.
+		*/
 		document.addEventListener("keydown", onKeyDown);
 	}
 
