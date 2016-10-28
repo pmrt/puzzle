@@ -3,10 +3,13 @@ class View {
 	Handles any graphical
 	element of the game.
 	*/
+	constructor(){
+		this.loadElements();
+	}
 
 	buildPanel(dimension) {
 		/*
-			Build the panel according to
+			Builds the panel according to
 			the dimension parameter:
 
 			Where:
@@ -28,7 +31,53 @@ class View {
 				td.appendChild(document.createTextNode(ID));
 			}
 		}
-		document.body.appendChild(table);
+
+		this.content.appendChild(table);
 		addEvents();
+	}
+
+	swapCells(currentID, newID) {
+		/*
+			Swaps 'currentID' td element
+			with the 'newID' one.
+
+		*/
+		let currentCell = document.getElementById(currentID);
+		let newCell = document.getElementById(newID);
+
+		let currentCellValue = currentCell.id;
+		let newCellValue = newCell.id;
+
+		currentCell.innerHTML = newCellValue;
+		currentCell.id = newCellValue;
+		newCell.innerHTML = currentCellValue;
+		newCell.id = currentCellValue;
+
+
+	}
+
+	msg(text) {
+		/*
+			Shows a message.
+		*/
+		this.stats.style.display = 'unset';
+		this.stats.innerHTML = text;
+		setTimeout(this.clearmsg, 2500);
+
+	}
+
+	clearmsg() {
+		/*
+			Clear the message.
+		*/
+		this.stats.style.display = 'none';
+	}
+
+	loadElements() {
+		/*
+			Loads the elements at panel setup.
+		*/
+		this.stats = document.getElementById('stats');
+		this.content = document.getElementById('content');
 	}
 }
