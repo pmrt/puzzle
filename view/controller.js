@@ -13,6 +13,8 @@
 	with the app.
 */
 
+// TODO GET DIMENSION (otherwise it only works with dimension: 4)
+
 function setCoords(currentOrder) {
 	/*
 		When you have built the
@@ -73,38 +75,49 @@ function addEvents() {
 	tracker.addEvents();
 }
 
+function swapCells(newCoords) {
+	values = myGame.swapCells(newCoords);
+	view.swapCells(values[0], values[1]);
+}
+
 function onKeyDown(event) {
 	/*
 		Handler for event previously added:
 
 		- KeyDown
+
+		Where:
+			<0 or 1>@<+1 or -1>
+			- 0 or 1 stands for direction (0:row or 1:col)
+			- @ It's just a separator
+			- +1/-1 it's the movement operation.
+
+		Then:
+			- W : 0@-1
+			- A : 1@-1
+			- D : 1@+1
+			- S : 0@+1
 	*/
-	currentCell = getPlayerCell();
 
 	switch (event.keyCode) {
 		case 65:
-			if (tracker.isValidMove(currentCell, '1@-1', myGame)) {
-
-			}
-			alert("izq");
+			myGame.makeMove('1@-1');
 			break;
 		case 87:
-			if (tracker.isValidMove(currentCell, '0@-1', myGame)) {
-
-			}
-			alert("arriba");
+			myGame.makeMove('0@-1');
 			break;
 		case 68:
-			if (tracker.isValidMove(currentCell, '1@+1', myGame)) {
-
-			}
-			alert("derecha");
+			myGame.makeMove('1@+1');
 			break;
 		case 83:
-			if (tracker.isValidMove(currentCell, '0@+1', myGame)) {
-
-			}
-			alert("abajo")
+			myGame.makeMove('0@+1');
 			break;
 	}
+}
+
+function msg(text) {
+	/*
+		Shows a message.
+	*/
+	view.msg(text);
 }
