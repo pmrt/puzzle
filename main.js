@@ -7,6 +7,7 @@ function newGame(dimension) {
 	view = new View();
 
 	view.buildPanel(dimension);
+	msg("Múevete con W, A, S, D");
 
 }
 
@@ -15,7 +16,7 @@ window.onload = function(){
 	/*
 		Initializer.
 	*/
-	newGame(4);
+	newGame(2);
 
 }
 
