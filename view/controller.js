@@ -115,9 +115,9 @@ function onKeyDown(event) {
 	}
 }
 
-function msg(text) {
+function msg(text, style) {
 	/*
 		Shows a message.
 	*/
-	view.msg(text);
+	view.msg(text, style);
 }
