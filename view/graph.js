@@ -56,12 +56,23 @@ class View {
 
 	}
 
-	msg(text) {
+	msg(text, style='transparent') {
 		/*
 			Shows a message.
 		*/
 		this.stats.style.display = 'unset';
 		this.stats.innerHTML = text;
+
+		switch(style) {
+			case "Warning":
+				this.stats.style.backgroundColor = "#ffefef";
+				break;
+			case "Positive":
+				this.stats.style.backgroundColor = "#f2ffef";
+				break;
+		}
+
+
 		setTimeout(this.clearmsg, 2500);
 
 	}
