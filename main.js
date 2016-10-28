@@ -1,11 +1,22 @@
-window.onload = function(){
+function newGame(dimension) {
 	/*
-	Initializer.
+		Starts a new game.
 	*/
-
 	myGame = new Game();
 	tracker = new Tracker();
 	view = new View();
 
-	view.buildPanel(4);
+	view.buildPanel(dimension);
+
 }
+
+
+window.onload = function(){
+	/*
+		Initializer.
+	*/
+	newGame(4);
+
+}
+
+
