@@ -18,9 +18,17 @@ class Game {
 		/*
 			Changes the 0 cell currentCoord.
 			If you want to do any checks do 'em over here.
+			@Parameter : coord: array.
 		*/
 		this.currentCoord = [];
 		this.currentCoord.push(...coord);
+	}
+
+	set changeDimension(dimension){
+		/*
+			Sets the dimension to 'dimension'.
+		*/
+		this.dimension = dimension;
 	}
 
 	get playerCell(){
@@ -40,11 +48,11 @@ class Game {
 			stores the coords.
 		*/
 		let currentOrder = startingOrder.slice();
-		let dimension = Math.sqrt(startingOrder.length);
+		this.changeDimension = Math.sqrt(startingOrder.length);
 
-		for (let i=0; i < dimension; i++){
+		for (let i=0; i < this.dimension; i++){
 			let row = [];
-			for (let j=0; j < dimension; j++){
+			for (let j=0; j < this.dimension; j++){
 				let rowValue = currentOrder.shift()
 				row.push(rowValue);
 
@@ -93,10 +101,10 @@ class Game {
 		*/
 		let newCoords = Utils.coordTranslate(this.playerCell, move);
 
-		if (tracker.isValidCoord(newCoords, 4)){
+		if (tracker.isValidCoord(newCoords, myGame.dimension)){
 			swapCells(newCoords);
 		} else {
-			msg("Movimiento no válido!");
+			msg("Movimiento no válido!", "Warning");
 		}
 	}
 
