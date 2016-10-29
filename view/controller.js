@@ -97,6 +97,8 @@ function onKeyDown(event) {
 			- A : 1@-1
 			- D : 1@+1
 			- S : 0@+1
+
+		callback: hasWon()
 	*/
 
 	switch (event.keyCode) {
@@ -112,12 +114,35 @@ function onKeyDown(event) {
 		case 83:
 			myGame.makeMove('0@+1');
 			break;
+
+	}
+
+	if (hasWon(myGame)){
+		myGame.won(tracker);
+		won();
 	}
 }
 
-function msg(text, style) {
+function msg(text, style, clearmsg) {
 	/*
 		Shows a message.
 	*/
-	view.msg(text, style);
+	view.msg(text, style, clearmsg);
+}
+
+function hasWon(game) {
+	/*
+		Checks if player
+		has won.
+	*/
+	return tracker.hasWon(game);
+}
+
+function won() {
+	/*
+		Called when user
+		has won.
+	*/
+	msg("Has ganado!", "Positive", false);
+	view.panelDisabled();
 }
