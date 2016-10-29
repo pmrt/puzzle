@@ -16,7 +16,7 @@ window.onload = function(){
 	/*
 		Initializer.
 	*/
-	newGame(2);
+	newGame(3);
 
 }
 
