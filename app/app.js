@@ -95,7 +95,7 @@ class Game {
 
 	}
 
-	makeMove(move){
+	makeMove(move) {
 		/*
 			Make the move 'move'.
 		*/
@@ -108,13 +108,58 @@ class Game {
 		}
 	}
 
+	won(tracker) {
+		/*
+			Disable the logic
+			side when player has won.
+			document.addEventListener("keydown", onKeyDown);
+		*/
+		tracker.delEvents();
+	}
+
 }
 
 
 class Tracker {
 
-	isSorted() {
+	hasWon(game){
+		/*
+			Checks if the player has won
+			because the last move.
+			@Return: boolean
+		*/
+		return this.isSorted(this.getResults(game.getCoords()));
+	}
 
+	isSorted(results) {
+		/*
+			Checks if passed results
+			are sorted. If they are,
+			it'll return true,
+			otherwise it'll return false.
+
+			@Return: boolean
+		*/
+		return (results.find(function(item, index)
+			{return item != index}) == undefined);
+	}
+
+	getResults(coords) {
+		/*
+			Get the results
+			of the current coords
+			in a single array.
+
+			@Return: array
+		*/
+		let results = [];
+
+		for (let array of coords) {
+			for (let elements of array) {
+				results.push(elements);
+			}
+		}
+		return results;
 	}
 
 	isValidCoord(coord, dimension) {
@@ -141,9 +186,16 @@ class Tracker {
 
 	addEvents(){
 		/*
-			Add the KeyDown event.
+			Adds the KeyDown event.
 		*/
 		document.addEventListener("keydown", onKeyDown);
+	}
+
+	delEvents(){
+		/*
+			Removes the KeyDown event.
+		*/
+		document.removeEventListener("keydown", onKeyDown);
 	}
 
 }
