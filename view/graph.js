@@ -56,7 +56,7 @@ class View {
 
 	}
 
-	msg(text, style='transparent') {
+	msg(text, style='transparent', clearmsg=true) {
 		/*
 			Shows a message.
 		*/
@@ -72,9 +72,9 @@ class View {
 				break;
 		}
 
-
-		setTimeout(this.clearmsg, 2500);
-
+		if (clearmsg) {
+			setTimeout(this.clearmsg, 2500);
+		}
 	}
 
 	clearmsg() {
@@ -90,5 +90,12 @@ class View {
 		*/
 		this.stats = document.getElementById('stats');
 		this.content = document.getElementById('content');
+	}
+
+	panelDisabled() {
+		/*
+			Set the panel style when it is disabled.
+		*/
+		this.content.lastChild.style.opacity = 0.50;
 	}
 }
