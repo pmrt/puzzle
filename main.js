@@ -15,6 +15,7 @@ function newGame(dimension) {
 window.onload = function(){
 	/*
 		Initializer.
+
 	*/
 	newGame(3);
 
